@@ -2,19 +2,17 @@ package med.voll.api.domain.consulta;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import med.voll.api.domain.medico.EspecialidadeEnum;
 
 import java.time.LocalDateTime;
 
-public record DadosAgendamentoConsulta(
-    Long idMedico,
+public record DadosCancelamentoConsulta(
+        @NotNull
+    Long idConsulta,
+
     @NotNull
-    Long idPaciente,
-    @NotNull
-    @Future
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    LocalDateTime data,
-    EspecialidadeEnum especialidade){
+    MotivoCancelamentoEnum motivo){
 
 }
