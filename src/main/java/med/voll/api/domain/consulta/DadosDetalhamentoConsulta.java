@@ -8,9 +8,9 @@ import med.voll.api.domain.paciente.Paciente;
 
 import java.time.LocalDateTime;
 
-public record DadosDetalhamentoConsulta(Long id, Medico medico, Paciente paciente, LocalDateTime data) {
+public record DadosDetalhamentoConsulta(Long id, long idMedico, long idPaciente, LocalDateTime data) {
     public DadosDetalhamentoConsulta(Consulta consulta) {
-        this(consulta.getId(), consulta.getMedico(), consulta.getPaciente(), consulta.getData());
+        this(consulta.getId(), consulta.getMedico().getId(), consulta.getPaciente().getId(), consulta.getData());
 
     }
 }
